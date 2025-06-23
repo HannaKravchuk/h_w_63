@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title Головна сторінка
+    link(rel="icon", href="/favicon.ico")
+    link(rel="stylesheet", href="/style.css")
+  body(class=theme)
+    header
+      h1 Мій сайт
+      nav
+        a(href="/") Головна
+        a(href="/login") Вхід
+        a(href="/register") Реєстрація
+        a(href="/protected") Захищена сторінка
+
+    main
+      section
+        h2 Поточна тема: #{theme}
+        form(action="/theme/set", method="post")
+          label(for="theme") Виберіть тему:
+          select(name="theme", id="theme")
+            option(value="light" selected=theme === 'light') Light
+            option(value="dark" selected=theme === 'dark') Dark
+          button(type="submit") Зберегти тему
+
+        p Ви можете змінити тему сайту і вона збережеться у cookie.
+        p Для доступу до захищених сторінок — увійдіть або зареєструйтесь.
